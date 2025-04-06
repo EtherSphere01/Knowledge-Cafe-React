@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import "./App.css";
+import Blogs from "./components/Blogs/Blogs";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <h1>Hello world</h1>
+      <Navbar></Navbar>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Blogs></Blogs>
+      </Suspense>
     </>
   );
 }
